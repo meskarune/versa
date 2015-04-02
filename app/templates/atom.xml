@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{ title }}</title>
+    <id>{{ url_for('index', _external=True) }}</id>
+    <link href="{{ url_for('feed', _external=True) }}" rel="self" />
+    <link href="{{ url_for('index', _external=True) }}" />
+    <icon>{{ url_for('static', filename='favicon.png', _external=True) }}</icon>
+    <updated>{{ feed_updated.strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
+    <author>
+        <name>{{ author }}</name>
+    </author>
+    <rights type="html">
+        &lt;p&gt;© Copyright {{ today().year }} by {{ author }}.&lt;/p&gt;
+        &lt;p&gt;Content licensed under a Creative Commons
+          Attribution-NonCommercial-ShareAlike License.&lt;/p&gt;
+    </rights>
+    {% for post in posts %}
+    <entry>{% set url = post.url(_external=True) %}
+        <id>{{ url }}</id>
+        <title>{{ post.title }}</title>
+        <updated>{{ post.updated().strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
+        <published>{{ post.published.strftime('%Y-%m-%dT%H:%M:%SZ') }}</published>
+        <author>
+            <name>{{ author }}</name>
+        </author>
+        <link href="{{ url }}" />
+        <content type="html">
+            {{ article.html }}
+        </content>
+    </entry>
+    {% endfor %}
+</feed>

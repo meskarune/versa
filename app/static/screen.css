@@ -1,0 +1,108 @@
+* {box-sizing: border-box;}
+body {
+  font-family: Arial, sans-serif;
+  color: #444;
+  background: #efefef;
+}
+/* Header */
+header.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background: #4a4a4a;
+  padding: 0em;
+  z-index: 10;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  overflow: hidden;
+}
+header.main a:link, header.main a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+header.main a:hover, header.main a:active {
+  text-decoration: underline;
+}
+header.main h2 {
+  float: left;
+  margin:0;
+  padding: .5rem;
+}
+.toggle, #toggle {
+  float: right;
+  display: none;
+  font-size: 1.5em;
+  padding: .5rem;
+  font-family: FontAwesome;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+#menu {
+  float: right;
+  margin: 0;
+}
+nav li {
+  padding: .9rem;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+}
+nav li:hover {background:black;}
+/* Main Content */
+#content {
+  margin-top: 3em;
+  overflow: hidden;
+}
+article {
+  float: left;
+  width: 75%;
+  padding: 1em 2em 1em 2em;
+}
+#sidebar {
+  float: left;
+  width: 25%;
+  padding: 1em;
+}
+@media only screen and (max-width : 520px) {
+  #menu {
+    max-height: 0;
+    -webkit-transition: all .25s linear;
+    -moz-transition: all .25s linear;
+    -ms-transition: all .25s linear;
+    transition: all .25s linear;
+    width:100%;
+  }
+  #menu > li {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align:center;
+  }
+  .toggle {
+    display:block;
+  }
+  #toggle:checked ~ #menu {
+     max-height: 20em;
+     -webkit-transition: all .25s linear;
+     -moz-transition: all .25s linear;
+     -ms-transition: all .25s linear;
+     transition: all .25s linear;
+     padding:0;
+  }
+  .toggle:after {
+     content: '\f0c9';
+  }
+  #toggle:checked + .toggle:after{
+     content: '\f00d';
+  }
+}
