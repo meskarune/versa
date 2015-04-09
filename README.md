@@ -7,4 +7,5 @@ files.
 Installation
 ============
 
-
+Download a zip file of the application with:
+    wget github.com/...
