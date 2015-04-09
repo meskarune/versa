@@ -9,4 +9,4 @@ Installation
 
 Download a zip file of the application with:
 
-Create a virtual enviroment in the flask directory
+Create a python virtual enviroment in the flask directory
