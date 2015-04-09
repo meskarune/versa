@@ -8,4 +8,5 @@ Installation
 ============
 
 Download a zip file of the application with:
-    wget github.com/...
+
+Create a virtual enviroment in the flask directory
