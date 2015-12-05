@@ -1,16 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+    Routes for the website
+"""
 import pygments.formatters
 import os.path
-from flask import render_template
-from flask import Markup
-from flask import abort
-from flask import safe_join
+from flask import (render_template, Markup, abort, safe_join)
 from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
 from app import app
 
 # For restructured text
-#from docutils.core import publish_parts
+#from docutils.core import publish_partsi
 
 #@app.template_filter('rst')
 #def rst_filter(text):
@@ -46,11 +47,6 @@ def page(path):
 #        return render_template('yearindex.html', page_html=entries)
 #    else:
 #        abort(404)
-
-@app.route('/pygments.css')
-def pygments_css():
-    css = pygments.formatters.HtmlFormatter(style='tango').get_style_defs('.highlight')
-    return app.response_class(css, mimetype='text/css')
 
 @app.route('/feed')
 @app.route('/feed.atom')
