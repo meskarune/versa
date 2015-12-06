@@ -2,9 +2,12 @@
 """
     Routes for the website
 """
-import pygments.formatters
 import os.path
-from flask import (render_template, Markup, abort, safe_join)
+import pygments.formatters
+from flask import render_template
+from flask import Markup
+from flask import abort
+from flask import safe_join
 from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
@@ -19,6 +22,7 @@ from app import app
 
 @app.template_filter('markdown')
 def markdown_filter(text):
+    """ Convert markdown to html """
     return Markup(markdown(text, extensions=[CodeHiliteExtension(linenums=True, css_class='highlight'), ExtraExtension()]))
 
 @app.route('/')
@@ -26,7 +30,7 @@ def markdown_filter(text):
 #@app.route('/index', methods=['GET', 'POST'])
 #@app.route('/index/<int:page>', methods=['GET', 'POST'])
 def index():
-    post_dir = 'app/content/posts/%s%s'%(path, '.md')
+    #post_dir = 'app/content/posts/%s%s'%(path, '.md')
     return render_template('index.html', title='Home')
 
 @app.route('/<path:path>/')
